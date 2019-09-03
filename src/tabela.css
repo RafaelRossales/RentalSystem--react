@@ -1,0 +1,59 @@
+#renov,#btn{
+    text-align: center;
+
+}
+#actions{
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 400px){
+    th,td {
+        text-align: left;
+        padding: 5px;
+
+    }
+
+}
+
+#tabela{
+    margin-top: 25%;
+    margin-left:18%;
+    text-align: center;
+  
+}
+
+
+@media only screen and (max-width: 600px){
+    #tabela{
+        margin-top: 45%;
+        margin-left: 6%;
+        text-align: center;
+       
+    }
+    td{
+        background: red;
+    }
+}
+@media only screen and (max-width: 520px){
+    #tabela{
+        margin-top: 45%;
+        margin-left: 6%;
+        text-align: center;
+        background: red;
+    }
+    td{
+        background: red;
+    }
+}
+@media only screen and (max-width: 420px){
+    #tabela{
+        margin-top: 65%;
+        margin-left: 6%;
+        text-align: center;
+        background: red;
+    }
+    td{
+        background: red;
+    }
+}

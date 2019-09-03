@@ -1,0 +1,19 @@
+img{
+    width: 300px;
+}
+p{
+    text-align: center;
+}
+input[type ="radio"]{
+    background: red;
+}
+
+@media screen and(max-width: 240px){
+    img{
+        width: 200px;
+    }
+    p{
+        text-align: center;
+        margin-right: 10px;
+    }
+}
