@@ -10,8 +10,22 @@ class Form extends React.Component {
         marca: '',
         renovacao: '',
         valor: '',
-        estimativa:''
+        estimativa:0
+ 
     }
+    
+    handleClear = e =>{
+        this.setState({
+        contato: '',
+        modelo: '',
+        marca: '',
+        renovacao: '',
+        valor: '',
+        estimativa:'',
+        })
+    }
+    
+    
     
     handleChange = e =>{
         this.setState({[e.target.name]:e.target.value})
@@ -30,17 +44,23 @@ class Form extends React.Component {
     }   
     
     handleClick = () =>{
-        if((this.state.renovacao=='nao') && ((this.state.marca="Chevrolet") || (this.state.marca="Fiat"))){
-            let valor1 = ((3/100)*this.state.valor);
-             this.setState({estimativa: valor1});                 
-        }if((this.state.renovacao=='nao') && ((this.state.marca="Citroen") || (this.state.marca="Ford")|| (this.state.marca="Volksvagen"))){
-            let valor1 = ((4/100)*this.state.valor);
-            this.setState({estimativa: valor1});
-        }if((this.state.renovacao=='sim') && ((this.state.marca="Citroen") || (this.state.marca="Chevrolet") || (this.state.marca="Fiat")|| (this.state.marca="Ford")|| (this.state.marca="Volksvagen"))){
-            let valor1 = ((10/100)*this.state.valor);
-            this.setState({estimativa: valor1});
-           
+        let seguro
+
+        if((this.state.marca == "Chevrolet")|| (this.state.marca== "Fiat")){
+             seguro = ((this.state.valor * 3) / 100)
+        }else{           
+             seguro = ((this.state.valor * 4) / 100)
         }
+        
+        if(this.state.renovacao == "sim"){
+          seguro = seguro * 0.90;   
+        }
+        
+        
+        this.setState({estimativa:seguro});
+            
+        
+           
     }
     
     
@@ -109,7 +129,7 @@ class Form extends React.Component {
                 
                                                 <div class = "input-field col s6">
                                                     <label>
-                                                        <input type="checkbox" class="filled-in" name="renovacao" onChange={this.handleChange} checked={this.state.renovacao =='sim'} />
+                                                        <input type="checkbox" class="filled-in" name="renovacao" onChange={this.handleChange} checked={this.state.renovacao=="sim"?true:false} />
                                                         <span>É Renovação</span>
                                                     </label>                                                      
                                                 </div>
@@ -122,10 +142,13 @@ class Form extends React.Component {
                                             </div>
                                            <p>Estimativa do valor do seguro: R$ {this.state.estimativa}</p>
                                            <br/>
-                                            <button type="submit" class="waves-effect waves-light red btn" id="btn-novo">Novo</button>
+                                            <a class="waves-effect waves-light red btn" onClick={this.handleClear} id="btn-novo">Novo</a>
                                             <a class="waves-effect waves-light red btn" id="btn-calcular" onClick={this.handleClick}>Calcular</a>
                                             <a class="waves-effect waves-light red btn" id="btn-listar">Listar</a>
-                
+                                             <div class = "input-field col s12" >
+                                             {this.state.estimativa!='' ?<button type="submit" class="waves-effect waves-light red btn" id="btn-novo">Registrar Interesse</button>:''}
+                                                                                                                                                                                                             
+                                                </div>
                                         </form>
                                     </div>
                                 </div>

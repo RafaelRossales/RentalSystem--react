@@ -33,7 +33,7 @@ class Listagem extends React.Component {
                                                         <th>Modelo</th>
                                                         <th>Marca</th>
                                                         <th>Valor</th>
-                                                        <th>Renovação</th>
+                                                        <th id="renov">Renovação</th>
                                                         <th id="actions">Ações</th>
                                                     </tr>
                                                 </thead>
